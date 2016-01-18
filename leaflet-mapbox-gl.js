@@ -59,6 +59,11 @@ L.MapboxGL = L.TileLayer.extend({
 
     this._glMap = new mapboxgl.Map(options);
     this._glMap.transform.latRange = null;
+    var self = this;
+    // refire the load event
+    this._glMap.on('load', function() {
+      self.fire('load')
+    });
   },
 
   //_layerAdd: function(e) {
