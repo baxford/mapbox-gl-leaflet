@@ -93,7 +93,7 @@ L.MapboxGL = L.TileLayer.extend({
       container.style.height = size.y + 'px';
       gl.resize();
     } else {
-      gl._update();
+      gl.update();
     }
   },
 
