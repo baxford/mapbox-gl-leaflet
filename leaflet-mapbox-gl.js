@@ -1,4 +1,4 @@
-L.MapboxGL = L.Layer.extend({
+L.MapboxGL = L.TileLayer.extend({
 
   initialize: function (options) {
     L.setOptions(this, options);
