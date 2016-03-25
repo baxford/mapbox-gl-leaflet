@@ -91,8 +91,10 @@ L.MapboxGL = L.Class.extend({
         var origin = e.origin.add(this._map._getMapPanePos()).subtract(this._map.getSize().divideBy(2));
         this._glMap.zoomTo(e.zoom - 1, {
             duration: 250,
-            easing: [0, 0, 0.25, 1],
-            offset: [origin.x, origin.y]
+            offset: [origin.x, origin.y],
+            easing: function (t) {
+              return t;
+            }
         });
     }
 });
