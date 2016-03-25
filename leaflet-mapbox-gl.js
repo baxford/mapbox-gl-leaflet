@@ -57,6 +57,8 @@ L.MapboxGL = L.Class.extend({
         });
 
         this._glMap = new mapboxgl.Map(options);
+        // allow GL base map to pan beyond min/max latitudes
+        this._glMap.transform.latRange = null;
     },
 
     _update: function () {
@@ -89,8 +91,7 @@ L.MapboxGL = L.Class.extend({
         var origin = e.origin.add(this._map._getMapPanePos()).subtract(this._map.getSize().divideBy(2));
         this._glMap.zoomTo(e.zoom - 1, {
             duration: 250,
-            offset: [origin.x, origin.y],
-            easing: [0, 0, 0.25, 1]
+            offset: [origin.x, origin.y]
         });
     }
 });
