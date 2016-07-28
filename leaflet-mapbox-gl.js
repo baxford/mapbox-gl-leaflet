@@ -9,7 +9,7 @@ L.MapboxGL = L.Class.extend({
             throw new Error('You should provide a Mapbox GL access token as a token option.');
         }
     },
-
+    includes: L.Mixin.Events,
     onAdd: function (map) {
         this._map = map;
 
